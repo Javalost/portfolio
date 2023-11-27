@@ -1,8 +1,9 @@
+import { Button } from '@mui/material';
 import styled from 'styled-components';
 
-const LinkButton = styled.button`
+const LinkButton = styled(Button)`
   background-color: white;
-  color: #fff;
+  color: black; // Updated for better visibility
   padding: 10px; // Equal padding for top, bottom, left, and right
   border: 1px solid black;
   border-radius: 50%; // Fully rounded corners
@@ -12,6 +13,10 @@ const LinkButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &:hover {
+    background-color: #f0f0f0; // Example hover effect
+  }
 `;
 
 export default LinkButton;
