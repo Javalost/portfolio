@@ -46,17 +46,13 @@ const Home = () => {
                 }}
             >
                 {/* Image positioned on top of the bottom border */}
-                <Box
-                    sx={{
-                        position: 'absolute',
-                        bottom: 0,
-                        left: '50%',
-                        transform: 'translate(-50%, 50%)',
-                        '& > span': { // Next.js Image component uses a 'span' wrapper
-                            display: 'block', // This ensures the span wrapper doesn't collapse
-                        }
-                    }}
-                >
+                <Box sx={{
+                    position: 'absolute',
+                    top: '50%', // Adjust top and left as necessary
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 1000, // High z-index to ensure it's above all other elements
+                }}>
                     <Image src="/assets/mydalleimage-removebg.png" alt="Descriptive Alt Text" width={400} height={500} layout="fixed" />
                 </Box>
             </Box>
