@@ -11,7 +11,7 @@ const Home = () => {
         <>
         <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', padding: 0, margin: 0 }}>
             <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '2rem', height: '5rem', zIndex:1100}}> 
-                <Button sx={{fontSize:'18px', color:'black', fontFamily: "'Roboto Mono', monospace"}}>
+                <Button href="/projects" sx={{fontSize:'18px', color:'black', fontFamily: "'Roboto Mono', monospace"}}>
                     Projects
                 </Button>
             </Box> 
