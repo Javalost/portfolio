@@ -18,7 +18,7 @@ const CustomCard = styled(Card)`
   width: 15rem;
   height: 15rem;
   border-radius: 15px;
-  border: solid;
+  border: 2px solid black;
   box-shadow: 10px 0 6px 0.1px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
@@ -58,7 +58,13 @@ const Projects = () => {
       const projectTitles = {
         folklore: 'Folklore',
         twentyfour: 'Game of 24',
-      };
+      }; 
+
+      const projectURLs = {
+        folklore: 'https://github.com/Javalost/folklore.io',
+        twentyfour: 'https://twentyfourgame.io/',
+    };
+    
     // Handler to cycle to the previous project
     const previousProject = () => {
         setCurrentProjectIndex((prevIndex) => (prevIndex - 1 + projectKeys.length) % projectKeys.length);
@@ -102,10 +108,11 @@ const Projects = () => {
                 width: '100%',
                 height: '2rem',
                 paddingLeft:'2rem',
+                background:'white',
                 display:'flex',
                 alignItems:'center',
             }}>
-                <Typography variant='h6' fontFamily="'Roboto Mono', monospace" marginLeft={'3rem'}>
+                <Typography variant='h6' fontFamily="'Roboto Mono'" marginLeft={'3rem'}>
                     PORTFOLIO
                 </Typography>
                 <Button href={"/"}>
@@ -125,10 +132,18 @@ const Projects = () => {
                 </Button>
                 
             </Box>
-            <Box sx={{display:'flex', justifyContent:'center', marginBottom:'2rem'}}>
-                <Typography variant='h3' fontFamily="'Roboto Mono', monospace" marginLeft={'3rem'}>
-                    {projectTitle}
+            <Box sx={{display:'flex', justifyContent:'center', marginBottom:'2rem', background:'white'}}>
+                <Typography variant='h3' fontFamily="'Roboto Mono', monospace" marginLeft={'3rem'} sx={{border:'1px solid grey', padding:'5px', borderRadius:'15px', }}>
+                    <a 
+                        href={projectURLs[selectedProjectKey]} 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        style={{ textDecoration: 'none', color: 'inherit' }}
+                    >
+                        {projectTitles[selectedProjectKey]}
+                    </a>
                 </Typography>
+
             </Box>
             
 
@@ -151,9 +166,12 @@ const Projects = () => {
                             
                         }}
                     >
-                        <Typography variant='h6' fontFamily="'Roboto Mono', monospace" padding={'2rem'}>
-                            {projectDescription}
+                       <Typography variant='h3' fontFamily="'Roboto Mono', monospace" marginLeft={'3rem'}>
+                        <a href={projectURLs[selectedProjectKey]} style={{ textDecoration: 'none', color: 'inherit' }}>
+                            {projectTitles[selectedProjectKey]}
+                        </a>
                         </Typography>
+
 
                     </Card>
                 )}
@@ -182,7 +200,11 @@ const Projects = () => {
                             backgroundSize: 'cover',
                             backgroundRepeat: 'no-repeat',
                             backgroundPosition: 'center', 
-                            cursor: 'pointer',
+                            cursor: 'pointer', 
+                            '&:hover': {
+                                transform: 'scale(1.05)', // Slightly scale up the card
+                                boxShadow: '16px 7px 10px -3px rgba(0, 0, 0, 0.9)', // Increase box shadow
+                              },
                         }}
                         onClick={nextProject}
                     >
